@@ -28,6 +28,22 @@ public class TwitterClient extends OAuthBaseClient {
     public static final String REST_CONSUMER_KEY = "cA9XlTVgpi1PiwFy9GnRXGTHa";       // Change this
     public static final String REST_CONSUMER_SECRET = "ya8tniPGgPWfEakETklLKzaeIpX37afsfrJudCbMyAvD0Wq0w9"; // Change this
     public static final String REST_CALLBACK_URL = "oauth://cpbasictweets"; // Change this (here and in manifest)
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getCount() {
+
+        return count;
+    }
+
+    public int incrementCount() {
+        count +=20;
+        return count;
+
+    }
+    int count =0;
     
     public TwitterClient(Context context) {
         super(context, REST_API_CLASS, REST_URL, REST_CONSUMER_KEY, REST_CONSUMER_SECRET, REST_CALLBACK_URL);
@@ -37,7 +53,8 @@ public class TwitterClient extends OAuthBaseClient {
         String apiUrl = getApiUrl("statuses/home_timeline.json");
         RequestParams params = new RequestParams();
         params.put("since_id","1");
-        client.get(apiUrl,params,handler);
+        params.put("count",Integer.toString(count));
+        client.get(apiUrl, params, handler);
     }
 
     public void getUserInfo(AsyncHttpResponseHandler handler) {

@@ -12,21 +12,33 @@
          />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:id="@+id/tvUserName"
-        android:text="UserName"
+        android:text="@string/tvUserName"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/tvBody"
-        android:layout_alignEnd="@+id/tvBody" />
+        android:layout_alignEnd="@+id/tvBody"
+        android:layout_above="@+id/tvBody"
+        android:layout_alignLeft="@+id/tvBody"
+        android:layout_alignStart="@+id/tvBody" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is the tweet body"
+        android:text="@string/tvBody"
         android:id="@+id/tvBody"
         android:layout_below="@+id/ivProfileImage"
         android:layout_toRightOf="@+id/ivProfileImage"
         android:layout_marginLeft="31dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvTimeCreated"
+        android:id="@+id/tvTimeCreated"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true" />
 
 </RelativeLayout><!-- From: file:/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/layout/tweet_text.xml -->

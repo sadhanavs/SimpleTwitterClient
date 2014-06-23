@@ -40,6 +40,9 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.displayImage(tweet.getUser().getProfileImageUrl(),ivProfileImage);
         tvUserName.setText(tweet.getUser().getScreenName());
+        TextView tvTimeCreated = (TextView) v.findViewById(R.id.tvTimeCreated);
+        String timeCr = tweet.getCreatedAt();
+        tvTimeCreated.setText(tweet.getRelativeTimeAgo());
         tvBody.setText(tweet.getBody());
         return v;
 

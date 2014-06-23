@@ -8,18 +8,20 @@ import android.view.MenuItem;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import java.util.Locale;
 
 import com.codepath.apps.basictwitter.models.Profile;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
+import android.text.format.DateUtils;
+import java.text.ParseException;
 import com.codepath.apps.basictwitter.models.Tweet;
 
 
 import java.util.ArrayList;
-
+import java.text.SimpleDateFormat;
 
 public class TimeLineActivity extends Activity {
 
@@ -42,15 +44,51 @@ public class TimeLineActivity extends Activity {
         tweets  = new ArrayList<Tweet>();
         aTweets = new TweetArrayAdapter(this,tweets);
         lvTweets.setAdapter(aTweets);
+        lvTweets.setOnScrollListener(new EndlessScrollListener() {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                customLoadMoreDataFromApi();
+            }
+        });
 
     }
 
+    public void customLoadMoreDataFromApi() {
+
+        if (client.getCount() > 200) {
+            client.setCount(0);
+            aTweets.clear();
+        }else {
+            client.incrementCount();
+        }
+        populateTimeLine();
+
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == RESULT_CODE && resultCode == RESULT_OK) {
             aTweets.clear();
             populateTimeLine();
         }
+    }
+
+
+    // getRelativeTimeAgo("Mon Apr 01 21:16:23 +0000 2014");
+    public String getRelativeTimeAgo(String rawJsonDate) {
+        String twitterFormat = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
+        SimpleDateFormat sf = new SimpleDateFormat(twitterFormat, Locale.ENGLISH);
+        sf.setLenient(true);
+
+        String relativeDate = "";
+        try {
+            long dateMillis = sf.parse(rawJsonDate).getTime();
+            relativeDate = DateUtils.getRelativeTimeSpanString(dateMillis,
+                    System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS).toString();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return relativeDate;
     }
 
     public void populateTimeLine() {

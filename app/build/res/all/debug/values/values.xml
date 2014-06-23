@@ -554,6 +554,9 @@
     <string name="title_activity_photos">Flickr Photos</string>
     <string name="title_activity_time_line">TimeLineActivity</string>
     <string name="title_activity_tweet">TweetActivity</string>
+    <string name="tvBody">This is the tweet body</string>
+    <string name="tvTimeCreated">tvTimeCreated</string>
+    <string name="tvUserName">UserName</string>
     <!-- From: file:/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/values/styles.xml -->
     <eat-comment />
 
