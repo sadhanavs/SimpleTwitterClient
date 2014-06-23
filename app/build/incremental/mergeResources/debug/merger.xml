@@ -8258,9 +8258,24 @@ false
     <dataSet config="main" >
         <source path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res" >
             <file
+                name="ic_edit"
+                path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-hdpi/ic_edit.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
                 name="ic_launcher"
                 path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-hdpi/ic_launcher.png"
                 qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_refresh"
+                path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-hdpi/ic_refresh.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_edit"
+                path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-mdpi/ic_edit.png"
+                qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="ic_launcher"
@@ -8268,13 +8283,38 @@ false
                 qualifiers="mdpi"
                 type="drawable" />
             <file
+                name="ic_refresh"
+                path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-mdpi/ic_refresh.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_edit"
+                path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-xhdpi/ic_edit.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
                 name="ic_launcher"
                 path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-xhdpi/ic_launcher.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
+                name="ic_refresh"
+                path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-xhdpi/ic_refresh.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_edit"
+                path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-xxhdpi/ic_edit.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
                 name="ic_launcher"
                 path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="ic_refresh"
+                path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-xxhdpi/ic_refresh.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
@@ -8285,6 +8325,16 @@ false
             <file
                 name="activity_time_line"
                 path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/layout/activity_time_line.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_tweet"
+                path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/layout/activity_tweet.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="tweet_text"
+                path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/layout/tweet_text.xml"
                 qualifiers=""
                 type="layout" />
             <file
@@ -8303,6 +8353,11 @@ false
                 qualifiers=""
                 type="menu" />
             <file
+                name="tweet"
+                path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/menu/tweet.xml"
+                qualifiers=""
+                type="menu" />
+            <file
                 path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/values/dimens.xml"
                 qualifiers="" >
                 <dimen name="activity_horizontal_margin" >16dp
@@ -8315,15 +8370,21 @@ false
                 qualifiers="" >
                 <string name="login_label" >Connect to Twitter
                 </string>
+                <string name="title_activity_tweet" >TweetActivity
+                </string>
                 <string name="action_settings" >Settings
                 </string>
                 <string name="app_name" >Basic Twitter
+                </string>
+                <string name="action_refresh" >Refresh
                 </string>
                 <string name="hello_world" >Hello world!
                 </string>
                 <string name="title_activity_photos" >Flickr Photos
                 </string>
                 <string name="title_activity_time_line" >TimeLineActivity
+                </string>
+                <string name="action_write" >Write
                 </string>
             </file>
             <file
@@ -8382,11 +8443,6 @@ false
                 <dimen name="activity_horizontal_margin" >64dp
                 </dimen>
             </file>
-            <file
-                name="tweet_text"
-                path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/layout/tweet_text.xml"
-                qualifiers=""
-                type="layout" />
         </source>
         <source path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/build/res/rs/debug" />
         <source path="/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/build/res/generated/debug" />

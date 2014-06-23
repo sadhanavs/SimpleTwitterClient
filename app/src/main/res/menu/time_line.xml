@@ -3,8 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.codepath.apps.basictwitter.TimeLineActivity" >
     
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+
+
+    <item android:id="@+id/action_write"
+        android:icon="@drawable/ic_edit"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/action_write"
+        android:onClick="onClickWrite"
+        android:orderInCategory="100" />
+
+    <item android:id="@+id/action_refresh"
+        android:icon="@drawable/ic_refresh"
+        android:showAsAction="ifRoom|withText"
+        android:onClick="onRefresh"
+        android:title="@string/action_refresh"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+    />
+
+
+
 </menu>

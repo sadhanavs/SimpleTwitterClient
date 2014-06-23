@@ -47,6 +47,10 @@
             android:name="com.codepath.apps.basictwitter.TimeLineActivity"
             android:label="@string/title_activity_time_line" >
         </activity>
+        <activity
+            android:name="com.codepath.apps.basictwitter.TweetActivity"
+            android:label="@string/title_activity_tweet" >
+        </activity>
     </application>
 
 </manifest>

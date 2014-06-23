@@ -26,6 +26,8 @@
         </activity>
         <activity android:label="@string/title_activity_time_line" android:name="com.codepath.apps.basictwitter.TimeLineActivity">
         </activity>
+        <activity android:label="@string/title_activity_tweet" android:name="com.codepath.apps.basictwitter.TweetActivity">
+        </activity>
     </application>
 
 </manifest>
