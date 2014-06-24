@@ -12,16 +12,12 @@
          />
 
     <TextView
-        android:layout_width="50dp"
+        android:layout_width="72dp"
         android:layout_height="wrap_content"
         android:id="@+id/tvUserName"
         android:text="@string/tvUserName"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/tvBody"
-        android:layout_alignEnd="@+id/tvBody"
         android:layout_above="@+id/tvBody"
-        android:layout_alignLeft="@+id/tvBody"
-        android:layout_alignStart="@+id/tvBody" />
+        android:layout_toRightOf="@+id/ivProfileImage" />
 
     <TextView
         android:layout_width="wrap_content"
