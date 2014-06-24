@@ -237,6 +237,7 @@ int drawable abc_textfield_searchview_right_holo_light 0x7f020056
 int drawable ic_edit 0x7f020057
 int drawable ic_launcher 0x7f020058
 int drawable ic_refresh 0x7f020059
+int drawable ic_tweet 0x7f02005a
 int id action_bar 0x7f07001c
 int id action_bar_activity_content 0x7f070014
 int id action_bar_container 0x7f07001b
@@ -362,12 +363,11 @@ int string action_write 0x7f0a000f
 int string app_name 0x7f0a0010
 int string hello_world 0x7f0a0011
 int string login_label 0x7f0a0012
-int string title_activity_photos 0x7f0a0013
-int string title_activity_time_line 0x7f0a0014
-int string title_activity_tweet 0x7f0a0015
-int string tvBody 0x7f0a0016
-int string tvTimeCreated 0x7f0a0017
-int string tvUserName 0x7f0a0018
+int string title_activity_time_line 0x7f0a0013
+int string title_activity_tweet 0x7f0a0014
+int string tvBody 0x7f0a0015
+int string tvTimeCreated 0x7f0a0016
+int string tvUserName 0x7f0a0017
 int style AppBaseTheme 0x7f0b0000
 int style AppTheme 0x7f0b0001
 int style TextAppearance_AppCompat_Base_CompactMenu_Dialog 0x7f0b0002

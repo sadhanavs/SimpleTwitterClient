@@ -551,9 +551,8 @@
     <string name="app_name">Basic Twitter</string>
     <string name="hello_world">Hello world!</string>
     <string name="login_label">Connect to Twitter</string>
-    <string name="title_activity_photos">Flickr Photos</string>
-    <string name="title_activity_time_line">TimeLineActivity</string>
-    <string name="title_activity_tweet">TweetActivity</string>
+    <string name="title_activity_time_line">Time Line</string>
+    <string name="title_activity_tweet">Tweet</string>
     <string name="tvBody">This is the tweet body</string>
     <string name="tvTimeCreated">tvTimeCreated</string>
     <string name="tvUserName">UserName</string>

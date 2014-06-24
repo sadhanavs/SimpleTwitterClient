@@ -930,6 +930,7 @@ containing a value of this type.
         public static final int ic_edit=0x7f020057;
         public static final int ic_launcher=0x7f020058;
         public static final int ic_refresh=0x7f020059;
+        public static final int ic_tweet=0x7f02005a;
     }
     public static final class id {
         public static final int action_bar=0x7f07001c;
@@ -1065,12 +1066,11 @@ containing a value of this type.
         public static final int app_name=0x7f0a0010;
         public static final int hello_world=0x7f0a0011;
         public static final int login_label=0x7f0a0012;
-        public static final int title_activity_photos=0x7f0a0013;
-        public static final int title_activity_time_line=0x7f0a0014;
-        public static final int title_activity_tweet=0x7f0a0015;
-        public static final int tvBody=0x7f0a0016;
-        public static final int tvTimeCreated=0x7f0a0017;
-        public static final int tvUserName=0x7f0a0018;
+        public static final int title_activity_time_line=0x7f0a0013;
+        public static final int title_activity_tweet=0x7f0a0014;
+        public static final int tvBody=0x7f0a0015;
+        public static final int tvTimeCreated=0x7f0a0016;
+        public static final int tvUserName=0x7f0a0017;
     }
     public static final class style {
         /** 

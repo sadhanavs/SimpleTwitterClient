@@ -66,7 +66,7 @@ public class TweetActivity extends Activity {
 
     public void onTweet(View view) {
 
-        Toast.makeText(this,etTweet.getText(),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,etTweet.getText(),Toast.LENGTH_SHORT).show();
 
         client.postTweet( etTweet.getText().toString(),new JsonHttpResponseHandler() {
             @Override
