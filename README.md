@@ -1,1 +1,1 @@
-![Alt text](SimpleTwitterClient.gif?raw=true "SimpleTwitterClient")
+![Alt text](SimpleTwitterApp.gif?raw=true "SimpleTwitterClient")
