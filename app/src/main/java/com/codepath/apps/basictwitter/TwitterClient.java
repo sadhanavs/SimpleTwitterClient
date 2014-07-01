@@ -49,6 +49,18 @@ public class TwitterClient extends OAuthBaseClient {
         super(context, REST_API_CLASS, REST_URL, REST_CONSUMER_KEY, REST_CONSUMER_SECRET, REST_CALLBACK_URL);
     }
 
+    public void getMentions(AsyncHttpResponseHandler handler){
+        String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+        RequestParams params = new RequestParams();
+        params.put("since_id","1");
+        if(count > 20) {
+            int max_id = count +1;
+            params.put("max_id",Integer.toString(max_id));
+        }
+        params.put("count",Integer.toString(count));
+        client.get(apiUrl, params, handler);
+
+    }
     public void getHomeTimeLine(AsyncHttpResponseHandler handler){
         String apiUrl = getApiUrl("statuses/home_timeline.json");
         RequestParams params = new RequestParams();
@@ -61,20 +73,21 @@ public class TwitterClient extends OAuthBaseClient {
         client.get(apiUrl, params, handler);
     }
 
-    public void getUserInfo(AsyncHttpResponseHandler handler) {
-        String apiUrl = getApiUrl("users/show.json");
-        RequestParams params = new RequestParams();
-        params.put("screen_name","sadhanavs");
-        client.get(apiUrl,params,handler);
+    public void getMyInfo(AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("account/verify_credentials.json");
+         client.get(apiUrl,null,handler);
     }
 
+    public void getUserTimeLine(AsyncHttpResponseHandler handler){
+        String apiUrl = getApiUrl("statuses/user_timeline.json");
+        client.get(apiUrl,null,handler);
+    }
 
     public void postTweet(String text, AsyncHttpResponseHandler handler) {
         String apiUrl = getApiUrl("statuses/update.json");
         RequestParams params = new RequestParams();
-        //params.put("screen_name","sadhanavs");
         params.put("status",text);
-        client.post(apiUrl,params,handler);
+        client.post(apiUrl,null,handler);
     }
 
     /* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint

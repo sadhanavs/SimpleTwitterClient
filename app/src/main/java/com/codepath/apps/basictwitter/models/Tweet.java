@@ -20,6 +20,7 @@ public class Tweet {
     private long uid;
     private String createdAt;
     private User user;
+    private  String handle;
 
     @Override
     public String toString() {
@@ -74,6 +75,7 @@ public class Tweet {
              tweet.uid = jsonObject.getLong("id");
              tweet.createdAt = jsonObject.getString("created_at");
              tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
+
          } catch (JSONException e) {
              e.printStackTrace();
              return null;

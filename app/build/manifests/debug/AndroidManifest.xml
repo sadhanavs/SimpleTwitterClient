@@ -28,6 +28,8 @@
         </activity>
         <activity android:label="@string/title_activity_tweet" android:name="com.codepath.apps.basictwitter.TweetActivity">
         </activity>
+        <activity android:label="@string/title_activity_profile" android:name="com.codepath.apps.basictwitter.ProfileActivity">
+        </activity>
     </application>
 
 </manifest>

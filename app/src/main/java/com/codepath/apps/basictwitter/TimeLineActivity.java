@@ -1,6 +1,8 @@
 package com.codepath.apps.basictwitter;
-
+import android.app.ActionBar;
+import android.support.v4.app.FragmentActivity;
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.Locale;
 
+import com.codepath.apps.basictwitter.fragments.HomeTimeLineFragment;
+import com.codepath.apps.basictwitter.fragments.MentionsTimeLineFragment;
+import com.codepath.apps.basictwitter.fragments.TweetsListFragment;
+import com.codepath.apps.basictwitter.listeners.FragmentTabListener;
 import com.codepath.apps.basictwitter.models.Profile;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -23,52 +29,57 @@ import com.codepath.apps.basictwitter.models.Tweet;
 import java.util.ArrayList;
 import java.text.SimpleDateFormat;
 
-public class TimeLineActivity extends Activity {
-
-    private TwitterClient client;
-    private ArrayList<Tweet> tweets;
-    private ArrayAdapter<Tweet> aTweets;
-    private ListView lvTweets;
-    private Profile profile;
+public class TimeLineActivity extends FragmentActivity {
 
     static final int RESULT_CODE=25;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_line);
-        client = TwitterApp.getRestClient();
-        populateTimeLine();
-        getUserInfo();
-        lvTweets = (ListView) findViewById(R.id.lvTweets);
-        tweets  = new ArrayList<Tweet>();
-        aTweets = new TweetArrayAdapter(this,tweets);
-        lvTweets.setAdapter(aTweets);
-        lvTweets.setOnScrollListener(new EndlessScrollListener() {
-            @Override
-            public void onLoadMore(int page, int totalItemsCount) {
-                customLoadMoreDataFromApi();
-            }
-        });
+        setupTabs();
+   }
+    public void onProfileView(MenuItem mi){
+        Intent i = new Intent(this,ProfileActivity.class);
+        startActivity(i);
 
     }
 
-    public void customLoadMoreDataFromApi() {
+    private void setupTabs() {
+        ActionBar actionBar = getActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setDisplayShowTitleEnabled(true);
 
-        if (client.getCount() > 200) {
-            client.setCount(0);
-            aTweets.clear();
-        }else {
-            client.incrementCount();
-        }
-        populateTimeLine();
+        ActionBar.Tab tab1 = actionBar
+                .newTab()
+                .setText("Home")
+                .setIcon(R.drawable.ic_home)
+                .setTag("HomeTimelineFragment")
+                .setTabListener(
+                        new FragmentTabListener<HomeTimeLineFragment>(R.id.flContainer, this, "first",
+                                HomeTimeLineFragment.class));
 
+        actionBar.addTab(tab1);
+        actionBar.selectTab(tab1);
+
+        ActionBar.Tab tab2 = actionBar
+                .newTab()
+                .setText("Mention")
+                .setIcon(R.drawable.ic_mentions)
+                .setTag("MentionsTimelineFragment")
+                .setTabListener(
+                        new FragmentTabListener<MentionsTimeLineFragment>(R.id.flContainer, this, "second",
+                                MentionsTimeLineFragment.class));
+
+        actionBar.addTab(tab2);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == RESULT_CODE && resultCode == RESULT_OK) {
-            aTweets.clear();
-            populateTimeLine();
+            //fragmentTweetsList.clear();
+            //populateTimeLine();
         }
     }
 
@@ -91,38 +102,6 @@ public class TimeLineActivity extends Activity {
         return relativeDate;
     }
 
-    public void populateTimeLine() {
-
-        client.getHomeTimeLine(new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(JSONArray jsonArray) {
-                Log.d("debug", jsonArray.toString());
-                aTweets.addAll(Tweet.fromJsonArray(jsonArray));
-            }
-
-            @Override
-            public void onFailure(Throwable throwable, String s) {
-                Log.d("debug", s.toString());
-            }
-        });
-    }
-
-    public  void getUserInfo(){
-        client.getUserInfo( new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(JSONObject json) {
-                Log.d("debug", json.toString());
-                profile = Profile.fromJson(json);
-                Log.d("debug", profile.toString());
-                //aTweets.addAll(Tweet.fromJsonArray(jsonArray));
-            }
-
-            @Override
-            public void onFailure(Throwable throwable, String s) {
-                Log.d("debug", s.toString());
-            }
-        });
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -132,16 +111,25 @@ public class TimeLineActivity extends Activity {
 
     public void onClickWrite(MenuItem menuItem){
         Intent i = new Intent(this,TweetActivity.class);
-        i.putExtra("profile",profile);
-        startActivityForResult(i,RESULT_CODE);
-        //i.putExtra("parameters",parameters);
-        //startActivityForResult(i,RESULT_CODE);
-
-    }
+        startActivity(i);
+     }
 
     public void onRefresh(MenuItem menuItem) {
-         aTweets.clear();
-         populateTimeLine();
+        //fragmentTweetsList.clear();
+         //populateTimeLine();
          //aTweets.notify();
     }
+
+    public void customLoadMoreDataFromApi() {
+/*
+        if (client.getCount() > 200) {
+            client.setCount(0);
+            fragmentTweetsList.clear();
+        }else {
+            client.incrementCount();
+        }
+        populateTimeLine();
+*/
+    }
+
 }

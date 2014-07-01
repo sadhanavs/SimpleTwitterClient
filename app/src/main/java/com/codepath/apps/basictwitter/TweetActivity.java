@@ -1,8 +1,10 @@
 package com.codepath.apps.basictwitter;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codepath.apps.basictwitter.fragments.TweetsFragment;
 import com.codepath.apps.basictwitter.models.Profile;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -18,36 +21,33 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
-public class TweetActivity extends Activity {
+public class TweetActivity extends FragmentActivity {
 
-    ImageView ivProfileImage ;
-    TextView tvUserName;
-    TextView tvTweet;
-    EditText etTweet;
-    private TwitterClient client;
+    TweetsFragment tweetFragment;
+    public void onTweet(View view) {
+
+        tweetFragment.postTweet();
+
+           //Toast.makeText(this,tweetFragment.getTweet(),Toast.LENGTH_SHORT).show();
+           Intent i = new Intent(this,TimeLineActivity.class);
+           startActivity(i);
+        //listener.onClick(view);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tweet);
-        client = TwitterApp.getRestClient();
-        Profile profile = (Profile)getIntent().getSerializableExtra("profile");
-        ivProfileImage = (ImageView) findViewById(R.id.imageView);
-//        ivProfileImage.setImageResource(android.R.color.transparent);
-        ImageLoader imageLoader = ImageLoader.getInstance();
-        imageLoader.displayImage(profile.getImageUrl(),ivProfileImage);
+        tweetFragment = (TweetsFragment) getSupportFragmentManager().findFragmentById(R.id.frTweet);
 
-        tvUserName = (TextView) findViewById(R.id.tvName);
-        tvUserName.setText("@"+profile.getScreen_name());
-        etTweet = (EditText) findViewById(R.id.etTweet);
-    }
+     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.tweet, menu);
+        //getMenuInflater().inflate(R.menu.tweet, menu);
         return true;
     }
 
@@ -64,31 +64,6 @@ public class TweetActivity extends Activity {
     }
 
 
-    public void onTweet(View view) {
 
-        //Toast.makeText(this,etTweet.getText(),Toast.LENGTH_SHORT).show();
-
-        client.postTweet( etTweet.getText().toString(),new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(JSONObject json) {
-                Log.d("debug", json.toString());
-//                profile = Profile.fromJson(json);
-//                Log.d("debug", profile.toString());
-                //aTweets.addAll(Tweet.fromJsonArray(jsonArray));
-            }
-
-            @Override
-            public void onFailure(Throwable throwable, String s) {
-                Log.d("debug", s.toString());
-            }
-        });
-
-        Intent i = new Intent(this,TimeLineActivity.class);
-        setResult(RESULT_OK,i);
-        finish();
-
-        //startActivity(i);
-
-    }
 
 }

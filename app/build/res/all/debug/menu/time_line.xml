@@ -21,6 +21,14 @@
     />
 
 
+    <item
+        android:id="@+id/profile"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_profile"
+        android:onClick="onProfileView"
+        android:title="Profile"></item>
+
+
 
 </menu>
 <!-- From: file:/Users/sadhanas/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/menu/time_line.xml -->
